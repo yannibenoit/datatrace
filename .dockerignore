@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitmodules
+
+# Testing
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# Documentation
+docs/_build/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Logs
+*.log
+logs/
+
+# Local configuration
+.env
+.env.local
+.env.*.local
+
+# Poetry
+poetry.lock
+
+# DataTrace metadata
+metadata/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Docker
+Dockerfile
+docker-compose*
+.dockerignore
+
+# READMEs and licenses
+README.md
+LICENSE
+CHANGELOG*
+
+# Spec Kit files
+.specify/
