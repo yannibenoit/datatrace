@@ -1,0 +1,89 @@
+[tool.poetry]
+name = "datatrace"
+version = "1.0.0"
+description = "DataTrace - Automated metadata discovery, end-to-end lineage tracking, and dbt integration"
+authors = ["DataTrace Team <datatrace@example.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "datatrace", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.109.0"
+pydantic = "^2.5.0"
+uvicorn = {extras = ["standard"], version = "^0.27.0"}
+google-cloud-bigquery = "^3.15.0"
+dbt-core = "^1.7.0"
+dbt-adapters = "^1.7.0"
+msal = "^1.28.0"
+requests = "^2.31.0"
+pydantic-settings = "^2.1.0"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.23"}
+asyncpg = "^0.29.0"
+httpx = "^0.26.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-multipart = "^0.0.6"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-asyncio = "^0.23.0"
+pytest-cov = "^4.1.0"
+ruff = "^0.1.0"
+black = "^24.0.0"
+pre-commit = "^3.6.0"
+mypy = "^1.8.0"
+types-requests = "^2.31.0"
+types-python-jose = "^2.1.0"
+
+[tool.poetry.scripts]
+datatrace = "datatrace.cli.main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "S",   # flake8-bandit (security)
+    "BLE", # flake8-blind-except
+    "TCH", # flake8-type-checking
+    "RUF", # ruff-specific rules
+]
+ignore = [
+    "E501",  # line too long (handled by black)
+    "S101",  # assert used (allowed in tests)
+    "B008",  # function call in argument default (common in FastAPI)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
